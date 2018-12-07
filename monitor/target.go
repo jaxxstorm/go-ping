@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	ping "github.com/jaxxstorm/go-ping"
+	ping "github.com/digineo/go-ping"
 )
 
 // Target is a unit of work
