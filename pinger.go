@@ -39,14 +39,14 @@ type Pinger struct {
 
 // New creates a new Pinger. This will open the raw socket and start the
 // receiving logic. You'll need to call Close() to cleanup.
-func New(bind4, bind6 string) (*Pinger, error) {
+func New(bind4, bind6, protocol4, procotol6 string) (*Pinger, error) {
 	// open sockets
-	conn4, err := connectICMP("ip4:icmp", bind4)
+	conn4, err := connectICMP(protocol4, bind4)
 	if err != nil {
 		return nil, err
 	}
 
-	conn6, err := connectICMP("ip6:ipv6-icmp", bind6)
+	conn6, err := connectICMP(protocol6, bind6)
 	if err != nil {
 		if conn4 != nil {
 			conn4.Close()
